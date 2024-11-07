@@ -1,0 +1,189 @@
+Link PlantUML
+//www.plantuml.com/plantuml/dpng/hLRDRjj64BxpAHQwM4xie4v_W18zHAxbEh3R57BQ0WvoM8f3SK5gA2oNKQksRrAW5pz6RdgnxkoFbglGKW_nmLpDpdppFpklMiMbwfPrSiAcs2r1SYKQR1FGFzWrbncmFnEc_sPltfhlvTta5tFuORRzvoTxcjvT9dydLcO6RTjqSkxbRjxSFPZ3RzFN3rChS3Uz-T4Sxh-_cLoRqtJsi8EuvL81gZzM3c9IaKrq3EXMlC4S9CcTiDkQjorWmhDMIJvNR4u4ThyIK1TYqKa7zhmb2iZNLoaJg2oj84TJwo_1ELa1UTtXmal2l08l5fWKpzKH3ict_uBdgJYgJvbkYJh4OYaPjA0sAcLPqzJ0qL9DygP1fpC2y-cG7KIC33sa88ZDch9LJL4KKETUdCwHkFHvIVTIz7pTWTJizzro2S6Wa9jCWb9zN91ffFFTUtjNSYW0KtR3zSSJrzkFX8xZqvun7q2ICp3RFdOPo77FsZEsqJgl0q7BVMX4RWLNDLVwNW9UycuDiXfdzfjI4WKkpjYgQGLLeqDpnNJTgv_JeHXQIvuCNwkWh0773YwsJSD44OE3fOny2TxSWU8sb0LaLrobJFzp5EVd_S_zElfTIHvHvas7Ab12TkFubnnpJPjW9a01ZgNB9eJ4LjJYxzxRT3YlKkzUY60VRvBLKAA6urX8lW1g_G79a4sZmrxWsFn8xMZnNDvpm2DvtZT8yQwTbrGbM6bpDhoiNJruLtjjSBhdTGnXglaenXcp_BgoImwrGj5wKuVXdmnvQAQwK3395f3jwn_ePH-oKD6JV2cGwH81p7TrsIzBbnDVtxjSZAFeQ-aXyafxAq0ENHMDLAQxuxjugCGD4kh3koyxpCaz-f2e4xO4BymhrK5TWo567GPp7T9TzP4DxaXOyGDaAyv3Ph01CI-nmqNSe_gnIyEx5xonJrzhSkUZ7KD2KK2bOhIIgti1YrM7rVwJmN5DCSSeSD6SFw1hg382W7sD3uXdq0greNJi1fUxQB3R5NJF8bX0JMtf0LPo-x606pCEndOgj1Cx3RnqtAfUH8zpQl7_nVlMTDhODjoUn1ahUNY41YUzZmlgNbtpMeNzuMXJycp1CuYRSR-23xUdV_u8nwiO7u30uHO_iVvLTgLYXNvacOrwInDe-sWcK0jxjMwblBScKj7JP4FwwwSpR70diOxGU8h2xE9y9K4yT5E1hLNg2yx-Eb2lJveo-ZAz68L4Fgm_kuANJi49csZUZJ2hDc3YN_NH5ozUF1knytCskXWDLbBAgcQvx53GbgBOKgYaj-1-zvSMfNrqWEfMsVqBlvpswR4PkoUsubsX4Wzak2uybzajKqPhZ6AQBp5M7EEngcCkimX7RD7-IHpFYFCRY_VahSL9_E8r2Whw4dqzOHiDE1VVnlo3J5-Fg2YUp6CGITdsaKQaIqymomdSsXsbv3s6b-TVnKXkU3gMdga4OH-mo90WxcAHChSV3vhXdKaZAs8SFvQf6b79fgu5EJLKiCCUKcEBJ2Ml0FDkMVy7
+
+@startuml
+' Enumerations
+enum Farbe {
+    ROT
+    BLAU
+    GRÜN
+    GELB
+}
+
+enum Ressource {
+    HOLZ
+    WEIZEN
+    LEHM
+    SCHAF
+    ERZ
+}
+
+enum Kartentyp {
+    Aktion
+    Ressource
+    Sonder
+}
+
+' Klassen
+abstract class Spielfigur {
+    +spielerID: int
+    +farbe: Farbe
+}
+
+class Siedlung {
+    +eckeID: int
+}
+
+class Stadt {
+    +eckeID: int
+}
+
+class Straße {
+    +kanteID: int
+}
+
+class Kante {
+    +kanteID: int
+    +besetzt: boolean
+    +startEckeID: int
+    +endEckeID: int
+}
+
+class Ecke {
+    +eckeID: int
+    +besetzt: boolean
+}
+
+class Rohstofffeld {
+    +feldID: int
+    +ressource: Ressource
+    +wuerfelSumme: int
+}
+
+class Spielbrett {
+    +felder: Rohstofffeld[]
+    +haefen: Hafen[]
+    +würfeln(): int
+    +versetzeRäuber(feldID: int, zielFeldID: int): void
+    +platzierenBauwerk(bauwerk: String, position: int, spielerFarbe: Farbe): boolean
+}
+
+class Räuber {
+    +feldID: int
+    +stehlen(spielerID: int): void
+}
+
+
+class Spieler {
+    +spielerID: int
+    +name: String
+    +farbe: Farbe
+    +gebDat: Date
+    +bauwerkSP: int
+    +extraSP: int
+    +countSP: int
+    +wuerfeln(): int
+    +handelnAnbieten(rohstoffe: Rohstoffkarte[], zielSpieler: Spieler): boolean
+    +handelAblehnen(anfragenderSpieler: Spieler): void
+    +karteSpielen(karte: Karte): void
+    +bauen(bauwerk: String, position: int): boolean
+    +tauschenBank(anzahl: int, rohstoff: Ressource): Rohstoffkarte
+    +tauschenHafen(anzahl: int, rohstoff: Ressource, tauschverhaeltnis: String): Rohstoffkarte
+    +rohstoffe: Rohstoffkarte[]
+    +haelfteAbgeben(anzahl: int, ressource: Ressource): void
+}
+
+class Admin extends Spieler{
+    +spiel: Spiel
+    +starteSpiel(): void
+    +endeSpiel(): void
+    +pausiereSpiel(): void
+    +fortsetzeSpiel(): void
+}
+
+class Spiel {
+    +spieler: Spieler[]
+    +runde: Runde
+}
+
+
+
+class Runde {
+    +aktuelleRunde: int
+    +naechsterSpieler(): Spieler
+}
+
+abstract class Karte {
+    +bezeichnung: String
+    +typ: Kartentyp
+}
+
+class Aktionskarte extends Karte {
+    +effekt: String
+    +hatSiegpunkt: boolean
+    +anwenden(): void
+}
+
+class Rohstoffkarte extends Karte {
+    +ressource: Ressource
+}
+
+class Sonderkarte extends Karte {
+    +besitzer: spielerID
+    +bonus: String
+}
+
+class Regelwerk {
+    +prüfeHandel(handelsAnfrage: String): boolean
+    +prüfeBau(bauAnfrage: String): boolean
+    +prüfeTausch(tauschAnfrage: String, hafen: Hafen): boolean
+}
+
+class Ressourcenverwaltung {
+    +rohstoffe: Rohstoffkarte[]
+    +abgabe(anzahl: int, spieler: Spieler, ressource: Ressource): void
+    +vergabeRohstoff(spieler: Spieler, ressourcen: Ressource): void
+}
+
+' Hafenklassen für Handelsverhältnisse
+abstract class Hafen {
+    +hafenID: int
+    +tauschVerhaeltnis: String
+    +eckeID: int
+    +vergeben: boolean
+}
+
+
+class DreiZuEinsHafen extends Hafen {
+    +ressource: Ressource
+    +tauschVerhaeltnis: "3:1"
+}
+
+class ZweiZuEinsHafen extends Hafen {
+    +ressource: Ressource
+    +tauschVerhaeltnis: "2:1"
+}
+
+' Assoziationen
+Spieler "0..*" -- "1" Ressourcenverwaltung: kommuniziert mit
+Spielfigur <|-- Stadt
+Spielfigur <|-- Siedlung
+Spielfigur <|-- Straße
+Spielfigur "0..*" -- "1" Spieler: kauft
+Siedlung "0..1" -- "1" Ecke: steht auf
+Stadt "0..1" -- "1" Ecke: steht auf
+Straße "0..1" -- "1" Kante: steht auf
+Rohstofffeld "1" *-- "6" Ecke
+Rohstofffeld "1" *-- "6" Kante
+Räuber "1" -- "1" Rohstofffeld: steht auf
+Spielbrett "1" *-- "19" Rohstofffeld
+Spielbrett "1" *-- "5" Hafen
+Spieler "0..*" -- "1" Spielbrett: ändert
+Spieler "1" -- "0..*" Karte: hat
+Spieler "2-4" -- "1" Spiel: spielt
+Spiel "1" *-- "1..*" Runde
+Spieler "0..4" -- "1" Räuber: versetzt
+Spieler "1" -- "0..5" Hafen:hat
+Spieler "0..4" -- "1" Regelwerk: kontrolliert
+Ressourcenverwaltung "1" -- "0..*" Karte: vergibt
+@enduml
