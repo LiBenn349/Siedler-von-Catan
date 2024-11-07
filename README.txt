@@ -22,7 +22,6 @@ https://github.com/LiBenn349/Siedler-von-Catan
 |
 |
 |----data_dictionary.ipynb --> enthält data dictionary und erweiternde Tabelle, die als Basis für das Klassendiagramm diente
-|----README.md 
 |----use_cases.ipynb --> enthält die Use-Case-Beschreibungen 
 
 
