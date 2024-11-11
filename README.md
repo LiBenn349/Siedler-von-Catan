@@ -13,7 +13,7 @@ https://www.canva.com/design/DAGVobDnzFg/Mqtb7W0CEAIV_cUXg0SqnQ/edit?utm_content
 
 Links zu GitHub: <br>
 https://github.com/LiBenn349/Siedler-von-Catan
-
+ 
 ---
 
 ## Ordnerstruktur
