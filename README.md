@@ -44,4 +44,4 @@ https://github.com/LiBenn349/Siedler-von-Catan
 ### Autoren
 
 Gruppe:  Simea S. Krieger, Melanie Frost, Lisa Benning<br>
-E-mail bei Fragen: sim.krieger.23@heilbronn.dhbw.de, mel.frost.23@heilbronn.dhbw.de oder lis.benning.23@heilbronn.dhbw.de
+E-mail bei Fragen: sim.krieger.23@heilbronn.dhbw.de, mel.frost.23@heilbronn.dhbw.de, lis.benning.23@heilbronn.dhbw.de
