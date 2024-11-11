@@ -21,18 +21,18 @@ https://github.com/LiBenn349/Siedler-von-Catan
 |--------Abgabe <br>
 |<br>
 |----Images<br>
-&nbsp;&nbsp;|--Kanbanboard.png<br>
-&nbsp;&nbsp;|--Klassendiagramm.png<br>
-&nbsp;&nbsp;|--Sequenzdiagramm.png<br>
+&nbsp;&nbsp;&nbsp;&nbsp;|--Kanbanboard.png<br>
+&nbsp;&nbsp;&nbsp;&nbsp;|--Klassendiagramm.png<br>
+&nbsp;&nbsp;&nbsp;&nbsp;|--Sequenzdiagramm.png<br>
 |<br>
 |<br>
 |----plantUML<br>
-&nbsp;&nbsp;|--klassendiagramm.txt --> beinhaltet plantUML-Link und plantUML-Code für das Klassendiagramm<br>
-&nbsp;&nbsp;|--sequencediagramm.txt --> beinhaltet plantUML-Link und plantUML-Code für das Sequenzdiagramm<br>
+&nbsp;&nbsp;&nbsp;&nbsp;|--klassendiagramm.txt --> beinhaltet plantUML-Link und plantUML-Code für das Klassendiagramm<br>
+&nbsp;&nbsp;&nbsp;&nbsp;|--sequencediagramm.txt --> beinhaltet plantUML-Link und plantUML-Code für das Sequenzdiagramm<br>
 |<br>
 |<br>
 |----Rules<br>
-&nbsp;&nbsp;|--CATAN_Spielregeln.pdf --> Offizielle Spielregeldatei des Herausgebers des Spieles<br>
+&nbsp;&nbsp;&nbsp;&nbsp;|--CATAN_Spielregeln.pdf --> Offizielle Spielregeldatei des Herausgebers des Spieles<br>
 |<br>
 |<br>
 |----data_dictionary.ipynb --> enthält data dictionary und erweiternde Tabelle, die als Basis für das Klassendiagramm diente<br>
